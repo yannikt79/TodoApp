@@ -11,7 +11,7 @@ export default Task = (props) => {
             </View>
             <View style={styles.taskContainer}>
                 <Text style={styles.task}>{props.task}</Text>
-                <TouchableOpacity onPress={() => {props.deleteTask(); Vibration.vibrate}}>
+                <TouchableOpacity onPress={() => {props.deleteTask(); Vibration.vibrate()}}>
                 <MaterialIcons style={styles.delete} name="delete" size={18} color='#fff' />
             </TouchableOpacity>
         </View>
