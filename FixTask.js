@@ -1,21 +1,29 @@
 
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Vibration } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, } from "react-native";
+import Pedometer from './Pedometer';
 
-export default Task = (props) => {
+
+export default function FixTask(props)  {
+
+    const [steps, setSteps] = useState(0);
+
+
+    function setAllSteps(count) {
+
+        setSteps(count)
+    }
+    
     return (
         <View style={styles.container}>
             <View style={styles.indexContainer}>
-                <Text style={styles.index}>{props.index}</Text>
             </View>
             <View style={styles.taskContainer}>
                 <Text style={styles.task}>{props.task}</Text>
-                <TouchableOpacity onPress={() => {props.deleteTask(); Vibration.vibrate}}>
-                <MaterialIcons style={styles.delete} name="delete" size={18} color='#fff' />
-            </TouchableOpacity>
+                <Text style={styles.task}>{steps}</Text>
+                {/*<Pedometer setAllSteps={ () => setAllSteps(count) }></Pedometer> */}
         </View>
-        </View >
+        </View>
     );
 }
 
@@ -55,6 +63,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     delete: {
+        marginLeft: 10,
+    },
+    pedometer: {
         marginLeft: 10,
     },
 });

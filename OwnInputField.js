@@ -5,8 +5,8 @@ import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, } 
 export default function OwnInputField (props) {
     const [task, setTask] = useState();
 
-    const handleCreateTask = (value) => {
-        props.createTask(value);
+    const handleAddTask = (value) => {
+        props.addTask(value);
         setTask(null);
     }
 
@@ -15,10 +15,10 @@ export default function OwnInputField (props) {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
-        <TextInput style={styles.inputField} value={task} onChangeText={text => setTask(text)} placeholder={'Create a task'} placeholderTextColor={'#fff'}/>
-        <TouchableOpacity onPress={() => handleCreateTask(task)}>
+        <TextInput style={styles.inputField} value={task} onChangeText={text => setTask(text)} placeholder={'Write a task'} placeholderTextColor={'#fff'}/>
+        <TouchableOpacity onPress={() => handleAddTask(task)}>
           <View style={styles.button}>
-              <MaterialIcons name="keyboard-arrow-up" size={26} color="#3E3385" />
+              <MaterialIcons name="keyboard-arrow-up" size={24} color="black" />
           </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
